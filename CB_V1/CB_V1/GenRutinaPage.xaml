@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CB_V1.GenRutinaPage">
+    <StackLayout Spacing="10" Padding="20">
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Entry Text="{Binding denumire}"/>
+            <Entry Text="{Binding idUtilizator}"/>
+
+            <Button Text="Adauga actiune in rutina"
+                    TextColor="White"
+                    BackgroundColor="DodgerBlue"
+                    FontSize="22"
+                    Command="{Binding AddCommand}"/>
+
+            <Button Text="Refresh rutina"
+                    TextColor="White"
+                    BackgroundColor="Fuchsia"
+                    FontSize="22"
+                    Command="{Binding RefreshCommand}"/>
+
+
+            <ListView ItemsSource="{Binding GeneratorRutine}" >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Actiune.Denumire}" />
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+</ContentPage>
